@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const TeamMemberCard = ({ src, name, role, description }) => {
   return (
@@ -10,11 +11,14 @@ const TeamMemberCard = ({ src, name, role, description }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <img
-        src={src}
-        alt={name}
-        className="w-28 h-28 rounded-full mx-auto mb-4 object-cover border-4 border-cyan-500"
-      />
+      <div className="relative w-28 h-28 mx-auto mb-4">
+        <Image
+          src={src}
+          alt={name}
+          fill
+          className="rounded-full object-cover border-4 border-cyan-500"
+        />
+      </div>
       <h3 className="text-xl font-bold text-white">{name}</h3>
       <p className="text-cyan-400">{role}</p>
       <p className="text-gray-300 mt-2">{description}</p>
